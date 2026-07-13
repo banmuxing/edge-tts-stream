@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Runtime data
+data/*
+!data/.gitkeep
+
+# Logs
+*.log
+
+# Docker
+*.tar
+
+# OS
+.DS_Store
+Thumbs.db
