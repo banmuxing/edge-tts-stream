@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+
+  edge-tts-gateway:
+
+    container_name: edge-tts-gateway
+
+    build: .
+
+    restart: unless-stopped
+
+    network_mode: bridge
+
+    ports:
+      - "3978:3978"
+
+    volumes:
+      - ./data:/app/data
+
+    environment:
+      TZ: Asia/Shanghai
+
+      PYTHONUNBUFFERED: "1"
+
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:3978/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
